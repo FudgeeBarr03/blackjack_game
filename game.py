@@ -28,7 +28,7 @@ class Game:
     def get_font(self, size):
         return pygame.font.Font(None, size)
 
-    def get_buttons(self):
+    def load_buttons(self):
         self.start_button = Button(320, 500, pygame.image.load("assets/buttons/start_btn.png"), 1)
         self.exit_button = Button(670, 500, pygame.image.load("assets/buttons/exit.png"), 1)
         self.hit_button = Button(300, 600, pygame.image.load("assets/buttons/hit.png"), 1)
