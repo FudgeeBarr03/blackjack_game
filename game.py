@@ -71,7 +71,12 @@ class Game:
                 
             if self.game_over:
                 self.screen.blit(self.get_font(45).render(f"Dealer's total: {self.dealer.total()}", True, "White"), (450, 200))
-                
+                result = self.check_winner()
+                self.screen.blit(self.get_font(45).render(result, True, "White"), (450, 280))
+                if self.retry_button.draw(self.screen):
+                    self.play_game()
+            
+            
     def check_winner(self):
         player_score = self.player.total()
         dealer_score = self.dealer.total()
