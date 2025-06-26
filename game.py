@@ -55,3 +55,10 @@ class Game:
             self.player.draw(self.screen, 380)
             
             self.screen.blit(self.get_font(45).render)(f"Your total: {self.player.total()}", True, "white"), (450, 550)
+            
+            if self.player_in and not self.game_over:
+                if self.hit_button.draw(self.screen):
+                    self.deck.deal_card(self.player)
+                    if self.player.total() >= 21:
+                        self.player_in = False
+                        self.game_over = True
