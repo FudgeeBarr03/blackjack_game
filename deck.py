@@ -19,3 +19,10 @@ class Deck:
             rank = int(file.split()[1].split('.')[0])
             value = 11 if rank == 1 else 10 if rank >= 11 else rank
             self.cards.append({"image": image, "value": value})
+            
+    def deal_card(self, hand):
+        if not self.cards:
+            self.load_cards()
+        card = random.choice(self.cards)
+        hand.add_card(card)
+        self.card.remove(card)
