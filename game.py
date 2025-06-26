@@ -62,3 +62,10 @@ class Game:
                     if self.player.total() >= 21:
                         self.player_in = False
                         self.game_over = True
+                        
+            if not self.player_in and self.dealer_in:
+                while self.dealer.total() < 17:
+                    self.deck.deal_card(self.dealer)
+                self.dealer_in = False
+                self.game_over = True
+                
