@@ -12,3 +12,9 @@ class hand:
             value -= 10
             aces -= 1
         return value    
+    
+    def draw(self, surface, y, face_down=False, face_down_card=None):
+        for index, card in enumerate(self.cards):
+            x = 200 + (index * 100)
+            image = card["image"] if index > 0 or not face_down else face_down_card
+            surface.blit(image, (x, y))
