@@ -76,7 +76,12 @@ class Game:
                 if self.retry_button.draw(self.screen):
                     self.play_game()
             
-            
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    playing = False
+                    self.running = False
+            pygame.display.update()
+    
     def check_winner(self):
         player_score = self.player.total()
         dealer_score = self.dealer.total()
