@@ -1,4 +1,7 @@
 import pygame
+from deck import Deck
+from hand import Hand
+from button import Button
 
 class Game:
     def __init__(self):
@@ -19,6 +22,3 @@ class Game:
                     self.running = False
             pygame.display.update()
         pygame.quit()
-    
-Game.run()
-    
