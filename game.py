@@ -64,8 +64,22 @@ class Game:
                         self.game_over = True
                         
             if not self.player_in and self.dealer_in:
-                while self.dealer.total() < 17:
+                while self.dealer.total() < 21:
                     self.deck.deal_card(self.dealer)
                 self.dealer_in = False
                 self.game_over = True
                 
+            if self.game_over:
+                self.screen.blit(self.get_font(45).render(f"Dealer's total: {self.dealer.total()}", True, "White"), (450, 200))
+                
+    def check_winner(self):
+        player_score = self.player.total()
+        dealer_score = self.dealer.total()
+        if player_score >21:
+            return "Dealer wins!"
+        elif dealer_score >21 or player_score > dealer_score:
+            return "You win!"
+        elif dealer_score > player_score:
+            return "Dealer wins!"
+        else:
+            return "Its a tie!"
