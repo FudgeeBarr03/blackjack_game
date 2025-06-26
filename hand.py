@@ -7,7 +7,7 @@ class Hand:
         
     def total(self):
         value = sum(card["value"] for card in self.cards)
-        aces = sum(1 for card in self.cards if card["value}" == 11])
+        aces = sum(1 for card in self.cards if card["value"] == 11)
         while value > 21 and aces:
             value -= 10
             aces -= 1

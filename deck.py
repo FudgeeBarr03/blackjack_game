@@ -25,4 +25,4 @@ class Deck:
             self.load_cards()
         card = random.choice(self.cards)
         hand.add_card(card)
-        self.card.remove(card)
+        self.cards.remove(card)
